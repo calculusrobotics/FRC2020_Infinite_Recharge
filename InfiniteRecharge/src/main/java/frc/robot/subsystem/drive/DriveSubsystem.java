@@ -2,7 +2,7 @@ package frc.robot.subsystem.drive;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -35,8 +35,8 @@ public class DriveSubsystem extends BitBucketSubsystem {
 
 
     // TODO: CHANGE TO FX WHEN WE GET GOOD BOT
-    private WPI_TalonSRX[] leftMotors;
-    private WPI_TalonSRX[] rightMotors;
+    private WPI_TalonFX[] leftMotors;
+    private WPI_TalonFX[] rightMotors;
 
     private final NavigationSubsystem NAVIGATION_SUBSYSTEM;
     private final OI OI;
@@ -92,12 +92,12 @@ public class DriveSubsystem extends BitBucketSubsystem {
 
 
 
-        leftMotors = new WPI_TalonSRX[config.drive.MOTORS_PER_SIDE];
-        rightMotors = new WPI_TalonSRX[config.drive.MOTORS_PER_SIDE];
+        leftMotors = new WPI_TalonFX[config.drive.MOTORS_PER_SIDE];
+        rightMotors = new WPI_TalonFX[config.drive.MOTORS_PER_SIDE];
 
         for (int i = 0; i < config.drive.MOTORS_PER_SIDE; i++) {
-            leftMotors[i] = MotorUtils.makeSRX(config.drive.leftMotors[i]);
-            rightMotors[i] = MotorUtils.makeSRX(config.drive.rightMotors[i]);
+            leftMotors[i] = MotorUtils.makeFX(config.drive.leftMotors[i]);
+            rightMotors[i] = MotorUtils.makeFX(config.drive.rightMotors[i]);
 
             leftMotors[i].setStatusFramePeriod(StatusFrameEnhanced.Status_13_Base_PIDF0, 
 											DriveConstants.HIGH_STATUS_FRAME_PERIOD_MS, 
