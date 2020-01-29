@@ -286,9 +286,11 @@ public class DriveSubsystem extends BitBucketSubsystem {
 
 
 
-            SmartDashboard.putNumber(getName() + "/Velocity (in/s)", getApproxV());
+            
             SmartDashboard.putNumber(getName() + "/Omega (rad/s)", getApproxOmega());
         }
+
+        SmartDashboard.putNumber(getName() + "/Velocity (in/s)", getApproxV());
     }
 
 
@@ -323,13 +325,13 @@ public class DriveSubsystem extends BitBucketSubsystem {
 
     public double getApproxV() {
         return 
-            (DriveConstants.WHEEL_DIAMETER_INCHES / 2) * 
+            (DriveConstants.WHEEL_DIAMETER_INCHES / 2) * DriveConstants.GEARING * 
             (rightMotors[0].getSelectedSensorVelocity() + leftMotors[0].getSelectedSensorVelocity()) / 2.0;
     }
 
     public double getApproxOmega() {
         return
-            (DriveConstants.WHEEL_DIAMETER_INCHES / 2) * 
+            (DriveConstants.WHEEL_DIAMETER_INCHES / 2) * DriveConstants.GEARING *
             (rightMotors[0].getSelectedSensorVelocity() - leftMotors[0].getSelectedSensorVelocity()) / (DriveConstants.WHEEL_TRACK_INCHES / 2.0);
     }
 }

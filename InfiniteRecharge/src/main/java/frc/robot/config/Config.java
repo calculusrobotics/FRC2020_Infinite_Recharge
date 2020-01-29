@@ -1,5 +1,6 @@
 package frc.robot.config;
 
+import frc.robot.config.MotorConfig.EncoderType;
 import frc.robot.utils.control.pidf.PIDF;
 
 public class Config {
@@ -55,9 +56,14 @@ public class Config {
         public boolean leftInverted = true;
         public boolean rightInverted = false;
 
-        public MotorConfig.EncoderType encoderType = MotorConfig.EncoderType.Quadrature;
+        public EncoderType encoderType = EncoderType.Quadrature;
+
+        public DriveConfig(EncoderType encoderType) {
+            this.encoderType = encoderType;
+        }
 
         public DriveConfig() {
+
         }
 
         /**
