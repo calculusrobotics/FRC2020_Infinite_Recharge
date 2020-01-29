@@ -165,23 +165,23 @@ public class DriveSubsystem extends BitBucketSubsystem {
         speed = forwardJoystickScaleChooser.getSelected().rescale(speed, DriveConstants.JOYSTICK_DEADBAND);
         turn = turnJoystickScaleChooser.getSelected().rescale(turn, DriveConstants.JOYSTICK_DEADBAND);
 
-        //leftMotors[0].set(ControlMode.PercentOutput, speed + turn);
-        //rightMotors[0].set(ControlMode.PercentOutput, speed - turn);
-		double ips = MathUtils.map(speed,
-            -1.0,
-            1.0,
-            -DriveConstants.MAX_ALLOWED_SPEED_IPS,
-            DriveConstants.MAX_ALLOWED_SPEED_IPS
-        );
+        leftMotors[0].set(ControlMode.PercentOutput, speed + turn);
+        rightMotors[0].set(ControlMode.PercentOutput, speed - turn);
+		// double ips = MathUtils.map(speed,
+        //     -1.0,
+        //     1.0,
+        //     -DriveConstants.MAX_ALLOWED_SPEED_IPS,
+        //     DriveConstants.MAX_ALLOWED_SPEED_IPS
+        // );
 
-        double radps = MathUtils.map(turn,
-            -1.0,
-            1.0,
-            -DriveConstants.MAX_ALLOWED_TURN_RADPS,
-            DriveConstants.MAX_ALLOWED_TURN_RADPS
-        );
+        // double radps = MathUtils.map(turn,
+        //     -1.0,
+        //     1.0,
+        //     -DriveConstants.MAX_ALLOWED_TURN_RADPS,
+        //     DriveConstants.MAX_ALLOWED_TURN_RADPS
+        // );
 
-        velocityDrive_auto(ips, radps);
+        // velocityDrive_auto(ips, radps);
     }
 
 
