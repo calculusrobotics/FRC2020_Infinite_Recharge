@@ -5,7 +5,7 @@ package frc.robot.utils.math.symbolic;
 public class Constant extends Symbolic implements Differentiable<Variable> {
     private final double VALUE;
 
-    public Constant(double constant) {
+    private Constant(double constant) {
         this.VALUE = constant;
     }
 
@@ -24,4 +24,5 @@ public class Constant extends Symbolic implements Differentiable<Variable> {
 
     public static Constant ZERO = new Constant(0);
     public static Constant ONE = new Constant(1);
+    public static Constant NEGATIVE_ONE = new Constant(-1);
 }

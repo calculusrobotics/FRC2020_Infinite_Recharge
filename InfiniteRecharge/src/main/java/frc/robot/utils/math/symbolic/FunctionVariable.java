@@ -7,9 +7,7 @@ public class FunctionVariable extends Variable {
 
     private HashMap<Variable, FunctionVariable> derivs;
 
-    public FunctionVariable(String name, Variable[] inputs) {
-        super(name);
-
+    public FunctionVariable(Variable[] inputs) {
         INPUTS = inputs;
 
         derivs = new HashMap<Variable, FunctionVariable>();
@@ -23,7 +21,7 @@ public class FunctionVariable extends Variable {
             for (int i = 0; i < INPUTS.length; i++) {
                 if (x.getID() == INPUTS[i].getID()) {
                     if (!derivs.containsKey(INPUTS[i])) {
-                        derivs.put(INPUTS[i], new FunctionVariable(NAME + "_" + INPUTS[i].getName(), INPUTS));
+                        derivs.put(INPUTS[i], new FunctionVariable(INPUTS));
                     }
                     
                     return derivs.get(INPUTS[i]);
